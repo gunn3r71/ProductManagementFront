@@ -1,0 +1,11 @@
+<div class="row" *ngIf="product">
+    <div class="col">
+    </div>
+    <div class="col">
+      <h1>{{ product.nome }}</h1>
+      <hr>
+      <span><strong>Price:</strong> {{ product.valor | currency: "BRL" }}</span>
+
+      <p>{{ product.descricao }}</p>
+    </div>
+</div>

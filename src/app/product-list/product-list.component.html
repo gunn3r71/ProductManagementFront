@@ -1,0 +1,24 @@
+<a class="btn btn-success btn-md" id="btnAdd" [routerLink]="['/products/new']"><i class="fa fa-plus"></i>&nbsp;Adicionar</a>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Nome</th>
+    <th scope="col">Valor</th>
+    <th scope="col">Ativo?</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of products">
+    <td>{{ product.id }}</td>
+    <td>{{ product.nome }}</td>
+    <td>{{ product.valor | currency: 'BRL'}}</td>
+    <td>{{ product.ativo | active }}</td>
+    <td>
+      <a [routerLink]="['/products/details', product.id]" class="btn btn-info btn-sm"><span class="fa fa-search"></span></a>
+    </td>
+  </tr>
+  </tbody>
+</table>
