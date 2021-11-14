@@ -1,25 +1,36 @@
-<form [formGroup]="newProductForm" (ngSubmit)="onSubmit()">
-    <div class="input-group">
-      <label for="nome" class="form-label">Nome: </label>
-      <input type="text" id="nome" class="form-control" placeholder="Insira o nome do produto..." formControlName="nome">
+<div class="row form">
+  <h1>Adicionar produto</h1>
+
+  <hr>
+  
+  <form [formGroup]="newProductForm" (ngSubmit)="onSubmit()">
+    <div class="col col-md-12">
+      <div class="form-group">
+        <label for="nome" class="form-label">Nome: </label>
+        <input type="text" id="nome" class="form-control" placeholder="Insira o nome do produto..." formControlName="nome">
+      </div>
+  
+      <div class="form-group">
+        <label for="descricao" class="form-label">Descrição: </label>
+        <textarea id="descricao" class="form-control" formControlName="descricao"></textarea>
+      </div>
     </div>
 
-    <div class="input-group">
-      <label for="descricao" class="form-label">Descrição: </label>
-      <textarea id="descricao" formControlName="descricao"></textarea>
+    <div class="col col-md-12">
+      <div class="form-group">
+        <label for="imagem" class="form-label">Imagem: </label><br>
+        <input type="text" id="imagem" class="form-control" placeholder="Insira o nome do produto..." formControlName="imagemUrl">
+      </div>
+  
+      <div class="form-group">
+        <label for="valor" class="form-label">Valor: </label><br>
+        <input type="number" id="valor" class="form-control" placeholder="Insira o nome do produto..." formControlName="valor">
+      </div>
     </div>
 
-    <div class="input-group">
-      <label for="imagem" class="form-label">Imagem: </label><br>
-      <input type="text" id="imagem" class="form-control" placeholder="Insira o nome do produto..." formControlName="imagemUrl">
+    <div class="submitForm d-grid gap-2">
+      <button type="submit" class="btn btn-success btn-md" [disabled]="!newProductForm.valid">Gravar</button>
     </div>
 
-    <div class="input-group">
-      <label for="valor" class="form-label">Valor: </label><br>
-      <input type="number" id="valor" class="form-control" placeholder="Insira o nome do produto..." formControlName="valor">
-    </div>
-
-    <div>
-      <button type="submit" [disabled]="!newProductForm.valid">Gravar</button>
-    </div>
-</form>
+  </form>
+</div>
