@@ -7,5 +7,9 @@
       <span><strong>Price:</strong> {{ product.valor | currency: "BRL" }}</span>
 
       <p>{{ product.descricao }}</p>
+
+      <div>
+        <a [routerLink]="['/products']" class="btn btn-secondary btn-sm">Voltar</a>
+      </div>
     </div>
 </div>

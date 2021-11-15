@@ -1,15 +1,18 @@
 <div class="row form">
   <h1>Adicionar produto</h1>
-
   <hr>
-  
+
+  <div class="back">
+    <a [routerLink]="['/products']" class="btn btn-secondary btn-sm">Voltar</a>
+  </div>
+
   <form [formGroup]="newProductForm" (ngSubmit)="onSubmit()">
     <div class="col col-md-12">
       <div class="form-group">
         <label for="nome" class="form-label">Nome: </label>
         <input type="text" id="nome" class="form-control" placeholder="Insira o nome do produto..." formControlName="nome">
       </div>
-  
+
       <div class="form-group">
         <label for="descricao" class="form-label">Descrição: </label>
         <textarea id="descricao" class="form-control" formControlName="descricao"></textarea>
@@ -21,7 +24,7 @@
         <label for="imagem" class="form-label">Imagem: </label><br>
         <input type="text" id="imagem" class="form-control" placeholder="Insira o nome do produto..." formControlName="imagemUrl">
       </div>
-  
+
       <div class="form-group">
         <label for="valor" class="form-label">Valor: </label><br>
         <input type="number" id="valor" class="form-control" placeholder="Insira o nome do produto..." formControlName="valor">
