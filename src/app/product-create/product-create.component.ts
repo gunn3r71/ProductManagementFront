@@ -10,6 +10,7 @@ import {Product} from "../models/product.model";
 })
 export class ProductCreateComponent implements OnInit {
   newProductForm: FormGroup;
+  image: string;
 
   constructor(private fb: FormBuilder, private service: ProductsService) { }
 
@@ -41,5 +42,19 @@ export class ProductCreateComponent implements OnInit {
       valor: [''],
       fornecedorId: ['']
     });
+  }
+
+  convertToBase64(event: any){
+    let file = event.target.files[0];
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.image = reader.result.toString();
+    };
+
+    console.log(this.image);
+    reader.onerror = function (error) {
+      console.log('Error: ', error);
+    };
   }
 }

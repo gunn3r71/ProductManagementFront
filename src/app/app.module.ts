@@ -10,6 +10,9 @@ import { MenuComponent } from './menu/menu.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductCreateComponent } from './product-create/product-create.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { ProviderListComponent } from './provider-list/provider-list.component';
+import { ProviderTypePipe } from './pipes/provider-type.pipe';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import {ReactiveFormsModule} from "@angular/forms";
     ActivePipe,
     MenuComponent,
     ProductDetailsComponent,
-    ProductCreateComponent
+    ProductCreateComponent,
+    ProviderListComponent,
+    ProviderTypePipe,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

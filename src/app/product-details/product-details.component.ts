@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Product} from "../models/product.model";
 import {ProductsService} from "../services/products.service";
 import {ActivatedRoute} from "@angular/router";
@@ -8,7 +8,7 @@ import {ActivatedRoute} from "@angular/router";
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.css']
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit, OnDestroy {
   product: Product;
   constructor(private service: ProductsService, private route: ActivatedRoute) { }
 
@@ -20,5 +20,9 @@ export class ProductDetailsComponent implements OnInit {
       }, error => {
         console.log(error);
       })
+  }
+
+  ngOnDestroy(): void {
+    this.product = null;
   }
 }

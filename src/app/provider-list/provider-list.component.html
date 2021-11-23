@@ -1,0 +1,9 @@
+<table>
+  <tr *ngFor="let provider of providers">
+    <td>{{ provider.nome }}</td>
+    <td>{{ provider.documento }}</td>
+    <td>{{ provider.tipoFornecedor | providerType }}</td>
+    <td>{{ provider.endereco }}</td>
+    <td>{{ provider.ativo | active }}</td>
+  </tr>
+</table>

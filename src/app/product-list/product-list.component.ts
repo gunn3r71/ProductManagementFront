@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Product} from "../models/product.model";
 import {ProductsService} from "../services/products.service";
+import {ErrorComponent} from "../error/error.component";
 
 @Component({
   selector: 'app-product-list',
@@ -8,6 +9,8 @@ import {ProductsService} from "../services/products.service";
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
+  @ViewChild(ErrorComponent)
+  errorComponent: ErrorComponent;
   products: Product[];
 
   constructor(private service: ProductsService) { }
@@ -16,8 +19,12 @@ export class ProductListComponent implements OnInit {
     this.service.getProducts()
       .subscribe((products) => {
         this.products = products;
-      }, error => {
-        console.log(error);
+      }, (error) => {
+        this.errorHandling("Ocorreu um erro ao carregar a listagem...");
       });
+  }
+
+  errorHandling(error: string): void{
+    this.errorComponent.showErrorMessage(error);
   }
 }
